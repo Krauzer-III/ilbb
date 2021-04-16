@@ -62,13 +62,43 @@ namespace ATOM.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
+    public class RegisterViewModel_Employer
     {
+        
+        
         [Required]
         [EmailAddress]
-        [Display(Name = "Адрес электронной почты")]
         public string Email { get; set; }
+        [Required]
+        public string ContactPhone { get; set; }
+        [Required]
+        public string OrganizationName { get; set; }
+        [Required]
+        public string OrganizationINN { get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
+        public string Password { get; set; }
 
+        [DataType(DataType.Password)]
+        [Display(Name = "Подтверждение пароля")]
+        [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
+        public string ConfirmPassword { get; set; }
+    }
+
+    public class RegisterViewModel_Improver
+    {
+        
+        [Required]
+        public string OrganizationName { get; set; }
+        [Required]
+        public string OrganizationINN { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+        [Required]
+        public string ContactPhone { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
         [DataType(DataType.Password)]

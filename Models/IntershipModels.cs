@@ -6,16 +6,10 @@ using System.Web;
 
 namespace ATOM.Models
 {
-    public class Model_Kettel_Question
+    public class Intership
     {
-        public int ID { get; set; }
-        public int QuestionNumber { get; set; }
-        public string TextQuestion { get; set; }
-        public Dictionary<string, string> Answers { get; set; }
-    }
-
-    public class Intership_MVC_Model
-    {
+        [Key]
+        [Required]
         public int ID { get; set; }
         public int ID_Employer { get; set; }
 
@@ -41,9 +35,17 @@ namespace ATOM.Models
         public DateTime DateEdit { get; set; }
 
         [Display(Name = "Состояние")]
-
-        public int DictStateIntership_ID { get; set; }
-
+        public DictStateIntership DictStateIntership { get; set; }
     }
 
+    public class DictStateIntership
+    {
+
+        [Key]
+        public int ID { get; set; }
+        [Required]
+        public string StateIntershipName { get; set; }
+        [Required]
+        public string CSSClass { get; set; }
+    }
 }

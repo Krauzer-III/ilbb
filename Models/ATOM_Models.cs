@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ATOM.Models
 {
-    public class VUZ
+    public class Education
     {
         [Key]
         public int ID { get; set; }

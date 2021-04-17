@@ -1,14 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using ATOM.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ATOM.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace ATOM.Controllers
 {
@@ -68,27 +65,40 @@ namespace ATOM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
-            }
+                var user = await UserManager.FindAsync(model.Email, model.Password);
+                //var user = await UserManager.FindAsync(model.UserName, model.Password.toMD5());
+                //ApplicationUser user = new AppContext().Users.FirstOrDefault(u => u.UserName == model.UserName);
+                if (user != null)
+                {
+                    await SignInAsync(user, true);
 
-            // Сбои при входе не приводят к блокированию учетной записи
-            // Чтобы ошибки при вводе пароля инициировали блокирование учетной записи, замените на shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Неудачная попытка входа.");
-                    return View(model);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    model.Password = model.Password;
+                    user = await UserManager.FindAsync(model.Email, model.Password);
+                    if (user != null)
+                    {
+                        await SignInAsync(user, true);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
+                }
             }
+            return View(model);
+        }
+
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+            // Add more custom claims here if you want. Eg HomeTown can be a claim for the User
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
         //
@@ -147,7 +157,7 @@ namespace ATOM.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel_Employer model)
         {
             if (ModelState.IsValid)
             {

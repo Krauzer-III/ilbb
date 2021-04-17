@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ATOM.Models.Intership>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    th {
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Список стажировок</h2>
+    </div>
+    <div class="col-md-3" style="padding-top: 20px; padding-bottom: 10px;">
+        <input class="form-control form-control-lg" type="text" placeholder="Найти стажировку" style="height: 46px;" />
+    </div>
+    <div class="col-md-3" style="padding-top: 20px; padding-bottom: 10px;">
+        <p>
+            @Html.ActionLink("Добавить стажировку", "Create", new { }, new { @class= "btn btn-lg btn-primary", @role = "button" })
+        </p>
+    </div>
+</div>
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IntershipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntershipShortDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEdit)
+        </th>
+        <th>
+            Состояние
+        </th>
+        <th>
+            Действия
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="row">
+                    @Html.DisplayFor(modelItem => item.IntershipName)
+                </div>
+                <div class="row">
+                    @Html.DisplayFor(modelItem => item.ImproverPosition)
+                </div>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntershipShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreate.ToString("dd/MM/yyyy"))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEdit.ToString("dd/MM/yyyy"))
+            </td>
+            <td>
+                <span class="@item.DictStateIntership.CSSClass">@item.DictStateIntership.StateIntershipName</span>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

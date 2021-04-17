@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ATOM.Helpers;
 
 namespace ATOM.Controllers
 {
@@ -89,5 +90,4 @@ namespace ATOM.Controllers
             return View();
         }
     }
-}
 }

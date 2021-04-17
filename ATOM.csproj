@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,12 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -172,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IntershipsController.cs" />
     <Compile Include="Controllers\KettelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PersonalCabinetController.cs" />
@@ -186,6 +187,8 @@
     <Compile Include="Models\ATOM_Models.cs" />
     <Compile Include="Models\CompetentionModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IntershipContext.cs" />
+    <Compile Include="Models\IntershipModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MVC_Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,9 +250,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Interships\Create.cshtml" />
+    <Content Include="Views\Interships\Delete.cshtml" />
+    <Content Include="Views\Interships\Details.cshtml" />
+    <Content Include="Views\Interships\Edit.cshtml" />
+    <Content Include="Views\Interships\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Internships\" />
     <Folder Include="Views\Kettel\" />
     <Folder Include="Views\PersonalCabinet\" />
     <Folder Include="Views\Validation\" />

@@ -21,6 +21,7 @@ namespace ATOM.Controllers
 
         public ActionResult VladykaCabinet()
         {
+
             return View();
         }
     }

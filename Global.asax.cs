@@ -1,5 +1,7 @@
+using ATOM.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,10 @@ namespace ATOM
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new DbAnketaInitializer());  //Анкетный инициализатор
+            Database.SetInitializer(new AppDbInitializer());  //Аутентификационный инициализатор
+            Database.SetInitializer(new DbIntershipInitializer());  //СтажООрный инициализатор
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

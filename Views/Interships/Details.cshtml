@@ -1,0 +1,74 @@
+﻿@model ATOM.Models.Intership
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Intership</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Employer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Employer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntershipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntershipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntershipShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntershipShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImproverPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImproverPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntershipFullDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntershipFullDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEdit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEdit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

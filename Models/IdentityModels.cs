@@ -44,7 +44,7 @@ namespace ATOM.Models
     /// <summary>
     /// Работодатель
     /// </summary>
-    public class Employer
+    public class Employer      
     {
         [Key]
         public int ID { get; set; }

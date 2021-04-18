@@ -37,7 +37,6 @@ namespace ATOM.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
-        public DateTime BirthDate { get; set; }
         public bool Verified { get; set; }
     }
 
@@ -144,7 +143,6 @@ namespace ATOM.Models
                     FirstName = "Билл",
                     LastName = "Гейтс",
                     MiddleName = "Майкрософтович",
-                    BirthDate = new DateTime(),
                     Verified = true
                 });
             }
@@ -163,7 +161,6 @@ namespace ATOM.Models
                     FirstName = "Архимед",
                     LastName = "Критский",
                     MiddleName = "Геометриевич",
-                    BirthDate = new DateTime(),
                     Verified = true
                 });
             }
@@ -182,7 +179,6 @@ namespace ATOM.Models
                     FirstName = "Леонард",
                     LastName = "Эйлер",
                     MiddleName = "Матанович",
-                    BirthDate = new DateTime(),
                     Verified = true
                 });
             }
@@ -201,7 +197,6 @@ namespace ATOM.Models
                     FirstName = "Леонардо",
                     LastName = "Пизанский",
                     MiddleName = "Фибоначчивич",
-                    BirthDate = new DateTime(),
                     Verified = true
                 });
             }
@@ -220,7 +215,6 @@ namespace ATOM.Models
                     FirstName = "Макс",
                     LastName = "Планк",
                     MiddleName = "Квантович",
-                    BirthDate = new DateTime(),
                     Verified = true
                 });
             }

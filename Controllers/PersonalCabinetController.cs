@@ -8,6 +8,13 @@ namespace ATOM.Controllers
 {
     public class PersonalCabinetController : Controller
     {
+        public ActionResult Index()
+        {
+            try
+            {
+                if ()
+} catch { }
+            }
         // GET: PersonalCabinet
         public ActionResult EmployerCabinet()
         {

@@ -1,0 +1,123 @@
+﻿#btn-header {
+    background-color: #0C2F6D;
+    width: 100%;
+    height: 140px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    letter-spacing: 0.4px;
+}
+
+.p-button-label {
+    font-family: system-ui;
+}
+
+.step {
+    width: 200px;
+    text-align: center;
+}
+
+.step-img {
+    height: 120px;
+    overflow: hidden;
+}
+
+
+.step-circle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: #0C2F6D;
+    color: white;
+    font-size: 20px;
+    font-family: system-ui;
+    margin: auto;
+    border-radius: 100%;
+    width: 54px;
+    height: 54px;
+    text-align: center;
+}
+
+.step-text {
+    text-align: center;
+    font-family: system-ui;
+    font-size: 19px;
+}
+
+.image-section {
+    height: 617px;
+    width: 1000px;
+    overflow: hidden;
+}
+
+    .image-section img {
+        height: 100%;
+        width: 100%;
+    }
+
+.text-section {
+    background-color: #0C2F6D;
+    color: white;
+    padding-top: 90px;
+    padding-left: 80px;
+    padding-right: 130px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+    .text-section h2 {
+        font-family: system-ui;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 48px;
+        letter-spacing: 0.4px;
+    }
+
+.desc {
+    font-family: system-ui;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: 0.4px;
+}
+
+.header-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.text-section-two {
+    font-family: system-ui;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 59px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #0C2F6D;
+}
+
+#btn-header:hover {
+    background-color: #6f93cf;
+    color: black;
+}
+
+.text-section:hover {
+    background-color: #29426d;
+}
+
+.footer {
+    background-color: #0C2F6D;
+}
+
+.soc {
+    color: white;
+    font-size: 20px;
+    font-family: system-ui;
+}
+
+.logo-team {
+    color: white;
+    font-family: system-ui;
+}
